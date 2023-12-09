@@ -1,0 +1,24 @@
+@use 'sass:math';
+
+.a-input-box {
+  border: 1px solid rgb($light-gray-color);
+  border-radius: $input-radius;
+  overflow: hidden;
+  background-color: rgb($white-color);
+  font-size: $input-font-size;
+
+  .a-input {
+    outline: none;
+    border: none;
+    padding-left: $input-inline-padding;
+    padding-right: math.div($input-inline-padding, 2);
+    padding-block: $input-block-padding;
+    overflow: hidden;
+  }
+
+  .suffix {
+    padding-right: $input-inline-padding;
+    padding-left: math.div($input-inline-padding, 2);
+    padding-block: $input-block-padding;
+  }
+}

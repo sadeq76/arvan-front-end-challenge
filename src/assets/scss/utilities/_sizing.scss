@@ -1,0 +1,14 @@
+$classes: (
+  'h': 'height',
+  'w': 'width'
+);
+
+$sizes: 100, 75, 50, 25;
+
+@each $class-prefix, $property in $classes {
+  @each $size in $sizes {
+    .#{$class-prefix}-#{$size} {
+      #{$property}: $size * 1%;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+$classes: (
+  'sm': 0.5,
+  'md': 1,
+  'lg': 1.5
+);
+
+@each $class-suffix, $factor in $classes {
+  .rounded-#{$class-suffix} {
+    border-radius: $base-border-radius * $factor;
+  }
+}

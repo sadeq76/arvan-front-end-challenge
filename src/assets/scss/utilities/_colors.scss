@@ -1,0 +1,31 @@
+$colors: (
+  'primary': $primary-color,
+  'success': $success-color,
+  'error': $error-color,
+  'warn': $warn-color,
+  'info': $info-color,
+  'silver': $silver-color,
+  'charcoal-grey': $charcoal-grey-color,
+  'white': $white-color
+);
+
+$extra-classes: (
+  'txt': 'color',
+  'border': 'border-color'
+);
+
+@each $color-name, $value in $colors {
+  .#{$color-name} {
+    background-color: rgb($value);
+  }
+
+  @each $prefix, $property in $extra-classes {
+    .#{$prefix}-#{$color-name} {
+      #{$property}: rgb($value);
+    }
+  }
+}
+
+.transparent {
+  background-color: transparent;
+}

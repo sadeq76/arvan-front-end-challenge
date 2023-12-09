@@ -1,0 +1,22 @@
+.a-btn {
+  outline: none;
+  border: none;
+
+  padding-block: 0.75rem;
+  padding-inline: 1rem;
+
+  font-size: 1rem;
+  border-radius: $button-radius;
+
+  cursor: pointer;
+}
+
+.a-btn.loading {
+  cursor: wait;
+  opacity: 0.5;
+}
+
+.a-btn.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
