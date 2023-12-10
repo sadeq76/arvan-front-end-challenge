@@ -29,3 +29,19 @@ $extra-classes: (
 .transparent {
   background-color: transparent;
 }
+
+// .btn.#{$color-name} {
+//   background-color: rgb($value);
+// }
+// .btn.outlined-#{$color-name} {
+//   border: $btn-border-size solid rgb($value);
+// }
+
+.a-btn.primary {
+  background-color: rgb($primary-color);
+}
+.a-btn.outlined-primary {
+  border: 1px solid rgb($primary-color);
+  color: rgb($primary-color);
+  background-color: transparent;
+}

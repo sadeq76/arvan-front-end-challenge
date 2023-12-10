@@ -1,16 +1,18 @@
 <script lang="ts" setup>
 import { type BtnProps } from '@/models/props/btn'
-const { text, loading, disabled } = defineProps<BtnProps>()
+const props = defineProps<BtnProps>()
+
+console.log(props.outlined)
 </script>
 
 <template>
   <button
-    class="a-btn primary txt-white"
-    :class="{ loading, disabled }"
+    class="a-btn txt-white"
+    :class="{ loading: props.loading, disabled: props.disabled }"
     :aria-disabled="!!disabled"
   >
     <span v-if="!loading">
-      {{ text }}
+      {{ props.text }}
     </span>
 
     <i v-else class="icon-loading spin txt-white"></i>
