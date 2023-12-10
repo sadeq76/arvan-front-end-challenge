@@ -15,7 +15,7 @@ $classes: (
   'ml': 'margin-left'
 );
 
-$sizes: 2, 4, 8, 12, 16, auto;
+$sizes: 2, 4, 6, 8, 12, 16, auto;
 
 @each $class-prefix, $property in $classes {
   @each $size in $sizes {
@@ -24,6 +24,20 @@ $sizes: 2, 4, 8, 12, 16, auto;
         #{$property}: $size;
       } @else {
         #{$property}: $size * $base-space;
+      }
+    }
+  }
+}
+
+@each $class-prefix, $property in $classes {
+  @each $size in $sizes {
+    @media screen and (max-width: $mobile-breakpoint) {
+      .#{$class-prefix}-sm-#{$size} {
+        @if $size == auto {
+          #{$property}: $size;
+        } @else {
+          #{$property}: $size * $base-space;
+        }
       }
     }
   }
