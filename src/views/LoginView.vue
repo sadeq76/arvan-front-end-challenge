@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 // components
 import AInput from '@/components/shared/AInput.vue'
@@ -10,6 +11,9 @@ import type { LoginDTO } from '@/models/dto/login'
 
 // Utils
 import { required, email, min, isFormValid } from '@/utils/validations'
+
+const { t } = useI18n()
+const title = computed(() => t('login').toUpperCase())
 
 const loading = ref<boolean>(false)
 const model = reactive<LoginDTO>({
@@ -38,12 +42,12 @@ const login = function () {
       class="login-card silver p-4 rounded-sm flex column items-center"
       @submit.prevent="login"
     >
-      <h1 class="title mb-4">LOGIN</h1>
+      <h1 class="title mb-4">{{ title }}</h1>
 
       <AInput
         v-model="model.email"
         class="w-100 mb-4"
-        label="Email"
+        :label="$t('email')"
         type="email"
         placeholder="example@host.com"
         :rules="[required, email]"
@@ -52,7 +56,7 @@ const login = function () {
       <AInput
         v-model="model.password"
         class="w-100 mb-4"
-        label="Password"
+        :label="$t('password')"
         type="password"
         placeholder="********"
         :rules="[required, min(8)]"
@@ -61,7 +65,7 @@ const login = function () {
       <div class="spacer"></div>
 
       <ABtn
-        text="Login"
+        :text="$t('login')"
         :loading="loading"
         :disabled="!isFormValid(loginForm)"
         class="w-100"
@@ -69,8 +73,8 @@ const login = function () {
       />
 
       <div class="mt-4 w-100 flex">
-        <p>Don’t have account?</p>
-        <RouterLink class="ml-2" to="/register">register now</RouterLink>
+        <p>{{ $t('dontHaveAccount') }}</p>
+        <RouterLink class="mx-2" to="/register">{{ $t('registerNow') }}</RouterLink>
       </div>
     </form>
   </div>
