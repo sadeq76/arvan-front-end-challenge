@@ -78,7 +78,7 @@ const register = function () {
       <div class="spacer"></div>
 
       <ABtn
-        text="Register"
+        :text="t('register')"
         :loading="loading"
         :disabled="!isFormValid(registerForm)"
         class="w-100"
