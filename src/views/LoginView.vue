@@ -3,8 +3,8 @@ import { reactive, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 // components
-import AInput from '@/components/shared/AInput.vue'
-import ABtn from '@/components/shared/ABtn.vue'
+import AInput from '@/components/AInput.vue'
+import ABtn from '@/components/ABtn.vue'
 
 // Types
 import type { LoginDTO } from '@/models/dto/login'

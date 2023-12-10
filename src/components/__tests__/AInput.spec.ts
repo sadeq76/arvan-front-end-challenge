@@ -3,7 +3,7 @@
 import { describe, it, expect, beforeAll, vi } from 'vitest'
 
 import { DOMWrapper, mount } from '@vue/test-utils'
-import AInput from '@/components/shared/AInput.vue'
+import AInput from '@/components/AInput.vue'
 
 // Specify the minimum and maximum values
 // TODO: Move randomNumber to test utils

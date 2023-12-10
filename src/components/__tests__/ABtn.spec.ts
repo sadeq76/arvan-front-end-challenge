@@ -3,7 +3,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import ABtn from '@/components/shared/ABtn.vue'
+import ABtn from '@/components/ABtn.vue'
 
 const props = {
   text: 'Test Text'

@@ -4,8 +4,8 @@ import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 // components
-import AInput from '@/components/shared/AInput.vue'
-import ABtn from '@/components/shared/ABtn.vue'
+import AInput from '@/components/AInput.vue'
+import ABtn from '@/components/ABtn.vue'
 
 // Types
 import type { RegisterDTO } from '@/models/dto/register'
