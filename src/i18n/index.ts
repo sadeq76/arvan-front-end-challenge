@@ -3,8 +3,9 @@ import { createI18n } from 'vue-i18n'
 import user from './user'
 import pages from './pages'
 import loginRegister from './login-register'
+import validation from './validation'
 
-const files = { ...user, ...pages, ...loginRegister }
+const files = { ...user, ...pages, ...loginRegister, ...validation }
 const messages: any = { fa: {}, en: {} }
 for (const [key, value] of Object.entries(files)) {
   for (const [valueKey, valueValue] of Object.entries(value)) {
