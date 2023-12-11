@@ -6,3 +6,4 @@
 - [ ] I'm not completely sure if importing CSS variables into two files is working correctly. (code: 0002)
 - [ ] There wasn't enough time to complete the test files. (code: 0003)
 - [ ] The APIs are not connected because I don't have access to the API documentation. (code: 0004)
+- [ ] Compelete DOD markdown. (code: 0005)

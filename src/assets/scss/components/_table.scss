@@ -1,0 +1,28 @@
+.a-table {
+  width: 100%;
+  overflow-x: scroll;
+
+  thead {
+    tr {
+      padding-inline: 1rem;
+      padding-block: 0.75rem;
+      background-color: rgb($silver-color);
+      th {
+        width: fit-content;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      padding-inline: 1rem;
+      padding-block: 0.75rem;
+      td {
+        width: fit-content;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 1rem;
+      }
+    }
+  }
+}
