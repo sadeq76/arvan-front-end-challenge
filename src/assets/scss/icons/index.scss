@@ -29,6 +29,21 @@
   display: inline-block;
 }
 
+[class^='icon-'].sm,
+[class*=' icon-'].sm {
+  font-size: 0.5rem;
+}
+
+[class^='icon-'].md,
+[class*=' icon-'].md {
+  font-size: 0.75rem;
+}
+
+[class^='icon-'].lg,
+[class*=' icon-'].lg {
+  font-size: 1rem;
+}
+
 .icon-angle-bottom:before {
   content: '\e900';
 }
