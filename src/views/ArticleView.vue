@@ -65,10 +65,10 @@ const tableProps = reactive<TableProps>({
 </script>
 
 <template>
-  <div>
+  <div class="h-100 flex column">
     <h1 class="mb-6">{{ $t('allPosts') }}</h1>
 
-    <a-table v-bind="tableProps">
+    <a-table v-bind="tableProps" class="grow-1">
       <template #index="{ index }">
         <span>{{ index + 1 }}</span>
       </template>

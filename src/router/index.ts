@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '@/views/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
-import DashboardView from '@/views/DashboardView.vue'
+import ArticleView from '@/views/ArticleView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,12 +19,21 @@ const router = createRouter({
       meta: { requiresAuth: false, layout: false }
     },
     {
-      path: '/',
-      name: 'Dashboard',
-      component: DashboardView,
-      meta: { requiresAuth: true, layout: true }
+      path: '/articles/page/:page(\\d+)',
+      name: 'Articles',
+      component: ArticleView,
+      meta: { requiresAuth: true, layout: true },
+      props: true
     }
   ]
+})
+
+router.beforeEach((to, _, next) => {
+  // if (to.meta.requiresAuth) return next('/login')
+
+  if (to.path === '/articles') return next('/articles/page/1')
+
+  next()
 })
 
 export default router

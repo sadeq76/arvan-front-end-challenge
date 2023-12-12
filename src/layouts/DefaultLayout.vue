@@ -1,9 +1,14 @@
 <script setup lang="ts">
+// components
 import ABtn from '@/components/ABtn.vue'
+import SidebarItem from './components/SidebarItem.vue'
+
+// constants
+import sidebarItems from '@/constants/sidebar-items'
 </script>
 
 <template>
-  <div class="layout">
+  <div class="layout overflow-hidden">
     <nav class="navbar px-8 py-6 p-sm-4 flex items-center">
       <div>
         <span role="heading" class="arvan-challenge">{{ $t('arvanChallenge') }}</span>
@@ -16,9 +21,11 @@ import ABtn from '@/components/ABtn.vue'
       <ABtn :text="$t('logout')" class="outlined-primary" />
     </nav>
 
-    <aside class="sidebar"></aside>
+    <aside class="sidebar">
+      <SidebarItem v-for="(item, index) in sidebarItems" :key="index" v-bind="item" />
+    </aside>
 
-    <main class="px-8 py-6 p-sm-4">
+    <main class="px-8 py-6 p-sm-4 overflow-hidden">
       <slot></slot>
     </main>
   </div>
