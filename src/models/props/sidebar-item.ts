@@ -1,5 +1,5 @@
 export interface SidebarItemProps {
-  name: string
-  path: string
-  children: SidebarItemProps[]
+  title: string
+  name?: string
+  children?: SidebarItemProps[]
 }

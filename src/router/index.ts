@@ -31,7 +31,7 @@ const router = createRouter({
 router.beforeEach((to, _, next) => {
   // if (to.meta.requiresAuth) return next('/login')
 
-  if (to.path === '/articles') return next('/articles/page/1')
+  if (to.path === '/' || to.path === '/articles') return next('/articles/page/1')
 
   next()
 })
