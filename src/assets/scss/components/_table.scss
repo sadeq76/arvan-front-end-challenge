@@ -1,27 +1,42 @@
 .a-table {
   width: 100%;
   overflow-x: scroll;
+  border-collapse: collapse;
+  text-align: start;
 
   thead {
+    color: rgb($gunmetal-color);
+
     tr {
-      padding-inline: 1rem;
-      padding-block: 0.75rem;
       background-color: rgb($silver-color);
+
       th {
+        padding-inline: 1rem;
+        padding-block: 0.75rem;
         width: fit-content;
+        text-align: inherit;
       }
     }
   }
 
   tbody {
+    color: rgb($charcoal-grey-color);
+
     tr {
       padding-inline: 1rem;
-      padding-block: 0.75rem;
+      padding-block: 1.5rem;
+      border-bottom: solid rgb($silver-color);
+      border-width: 2px;
+
       td {
         width: fit-content;
+        max-width: 12rem;
+        overflow: hidden;
+
         text-overflow: ellipsis;
         white-space: nowrap;
         padding: 1rem;
+        text-align: inherit;
       }
     }
   }

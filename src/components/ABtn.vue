@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { type BtnProps } from '@/models/props/btn'
 const props = defineProps<BtnProps>()
-
-console.log(props.outlined)
 </script>
 
 <template>
@@ -12,7 +10,11 @@ console.log(props.outlined)
     :aria-disabled="!!disabled"
   >
     <span v-if="!loading">
-      {{ props.text }}
+      <slot v-if="$slots.default"></slot>
+
+      <span v-else>
+        {{ props.text }}
+      </span>
     </span>
 
     <i v-else class="icon-loading spin txt-white"></i>

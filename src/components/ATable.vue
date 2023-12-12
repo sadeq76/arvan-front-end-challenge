@@ -7,18 +7,20 @@ const props = defineProps<TableProps>()
   <table class="a-table">
     <thead>
       <tr>
-        <th v-for="column in props.columns" :key="column.key">{{ column.title }}</th>
+        <th v-for="column in props.columns" :key="column.key" :class="column.class">
+          {{ column.title }}
+        </th>
       </tr>
     </thead>
 
     <tbody>
       <tr v-for="(item, index) in props.items" :key="index">
         <td v-for="cell in columns" :key="cell.key">
-          <span v-if="item[cell.key]">
+          <slot v-if="$slots[cell.key]" :name="cell.key" v-bind="{ ...item, index }"></slot>
+
+          <span v-else :class="cell.class">
             {{ item[cell.key] }}
           </span>
-
-          <slot :name="cell.key" v-bind="item"></slot>
         </td>
       </tr>
     </tbody>

@@ -7,6 +7,7 @@ import type { TableProps } from '@/models/props/table'
 
 // Components
 import ATable from '@/components/ATable.vue'
+import ABtn from '@/components/ABtn.vue'
 
 const { t } = useI18n()
 
@@ -17,13 +18,14 @@ const tableProps = reactive<TableProps>({
     { key: 'author', title: t('author') },
     { key: 'tags', title: t('tags') },
     { key: 'excerpt', title: t('excerpt') },
-    { key: 'created', title: t('created') }
+    { key: 'created', title: t('created') },
+    { key: 'actions' }
   ],
   items: [
     {
       title: 'Article title',
       author: '@author_username',
-      tags: ['hello', 'world'],
+      tags: ['article', 'test'],
       excerpt: 'First 20 words of article body',
       created: ''
     },
@@ -45,7 +47,7 @@ const tableProps = reactive<TableProps>({
     {
       title: 'Article title',
       author: '@author_username',
-      tags: ['hello', 'world'],
+      tags: ['hello', 'world', 'again', 'and', 'again', 'again', 'again', 'again', 'again'],
       excerpt:
         'First 20 words of article body First 20 words of article body First 20 words of article body First 20 words of article body First 20 words of article body',
       created: ''
@@ -64,29 +66,55 @@ const tableProps = reactive<TableProps>({
 
 <template>
   <div>
-    <h1>{{ $t('allPosts') }}</h1>
+    <h1 class="mb-6">{{ $t('allPosts') }}</h1>
 
     <a-table v-bind="tableProps">
+      <template #index="{ index }">
+        <span>{{ index + 1 }}</span>
+      </template>
+
       <template #tags="{ tags }">
-        <div v-for="tag in tags" :key="tag" class="tag">{{ tag }}</div>
+        <div class="tags w-100 flex items-center">
+          <div class="flex">
+            <div v-for="tag in tags.slice(0, 3)" :key="tag" class="mr-1 tag">{{ tag }}</div>
+          </div>
+
+          <span v-if="tags.length > 3">+ {{ tags.length - 3 }} more</span>
+        </div>
+      </template>
+
+      <template #actions>
+        <ABtn class="dark-sky-blue">
+          ...
+          <i class="icon-angle-bottom md"></i>
+        </ABtn>
       </template>
     </a-table>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.tag {
-  color: white;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-}
-.tag:nth-child(3n + 4) {
-  background-color: #e3b4d0;
-}
-.tag:nth-child(3n + 2) {
-  background-color: #4ec3c4;
-}
-.tag:nth-child(3n + 1) {
-  background-color: #8fa4ee;
+.tags {
+  font-size: 0.75rem;
+  overflow: hidden;
+
+  .tag {
+    color: white;
+    padding-block: 0.25rem;
+    padding-inline: 0.5rem;
+    border-radius: 0.25rem;
+  }
+  .tag:nth-child(4n) {
+    background-color: #e3b4d0;
+  }
+  .tag:nth-child(4n + 1) {
+    background-color: #4ec3c4;
+  }
+  .tag:nth-child(4n + 2) {
+    background-color: #8fa4ee;
+  }
+  .tag:nth-child(4n + 3) {
+    background-color: #ea998e;
+  }
 }
 </style>
