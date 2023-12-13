@@ -84,10 +84,12 @@ const tableProps = reactive<TableProps>({
       </template>
 
       <template #actions>
-        <ABtn class="dark-sky-blue">
+        <ABtn class="dark-sky-blue" data-toggle="popover">
           ...
           <i class="icon-angle-bottom md"></i>
         </ABtn>
+
+        <div class="popover">Teesting this components</div>
       </template>
     </a-table>
   </div>

@@ -1,0 +1,10 @@
+.popover {
+  padding: 1rem;
+  background-color: white;
+  box-shadow: $container-shadow;
+  text-wrap: wrap;
+  width: fit-content;
+  min-width: 10rem;
+  max-width: 15rem;
+  border-radius: $popover-border-radius;
+}
