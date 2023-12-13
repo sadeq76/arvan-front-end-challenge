@@ -1,15 +1,15 @@
 <script setup lang="ts">
 // components
 import ABtn from '@/components/ABtn.vue'
-import SidebarItem from './components/SidebarItem.vue'
+import NavbarItem from './components/NavbarItem.vue'
 
 // constants
-import sidebarItems from '@/constants/sidebar-items'
+import navbarItems from '@/constants/navbar-items'
 </script>
 
 <template>
   <div class="layout overflow-hidden">
-    <nav class="navbar px-8 py-6 p-sm-4 flex items-center">
+    <header class="header px-8 py-6 p-sm-4 flex items-center">
       <div>
         <span role="heading" class="arvan-challenge">{{ $t('arvanChallenge') }}</span>
 
@@ -19,11 +19,11 @@ import sidebarItems from '@/constants/sidebar-items'
       <div class="spacer"></div>
 
       <ABtn :text="$t('logout')" class="outlined-primary" />
-    </nav>
+    </header>
 
-    <aside class="sidebar">
-      <SidebarItem v-for="(item, index) in sidebarItems" :key="index" v-bind="item" />
-    </aside>
+    <nav class="navbar">
+      <NavbarItem v-for="(item, index) in navbarItems" :key="index" v-bind="item" />
+    </nav>
 
     <main class="px-8 py-6 p-sm-4 overflow-hidden">
       <slot></slot>
@@ -45,7 +45,7 @@ import sidebarItems from '@/constants/sidebar-items'
     grid-template-columns: 1fr;
   }
 
-  .navbar {
+  .header {
     background-color: rgb($charcoal-grey-color);
     grid-column: 1/3;
     color: rgb($white-color);
@@ -60,7 +60,7 @@ import sidebarItems from '@/constants/sidebar-items'
     }
   }
 
-  .sidebar {
+  .navbar {
     background-color: rgb($primary-color);
     @media only screen and (max-width: $mobile-breakpoint) {
       grid-row: 3;

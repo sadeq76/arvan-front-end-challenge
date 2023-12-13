@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { RouterLink } from 'vue-router'
-import type { SidebarItemProps } from '@/models/props/sidebar-item'
-const props = defineProps<SidebarItemProps>()
+import type { NavbarItemProps } from '@/models/props/navbar-item'
+const props = defineProps<NavbarItemProps>()
 const component = props.name ? RouterLink : 'span'
 </script>
 
@@ -11,7 +11,7 @@ const component = props.name ? RouterLink : 'span'
       {{ $t(props.title) }}
     </component>
 
-    <SidebarItem
+    <NavbarItem
       v-for="(child, index) in props.children"
       :key="index"
       v-bind="child"
