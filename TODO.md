@@ -11,3 +11,11 @@
 ## List of articles
 
 - [ ] Show snackbar on delete article (code: 0005)
+
+## Create new article
+
+- [ ] Remove the question mark from the path; I added it to address the issue with the missing page parameter, but it needs to be fixed (code: 0006)
+
+## General
+
+- [ ] Add Defination of done and check project with that (code: 0007)
