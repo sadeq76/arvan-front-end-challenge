@@ -1,10 +1,65 @@
-.popover {
-  padding: 1rem;
-  background-color: white;
-  box-shadow: $container-shadow;
-  text-wrap: wrap;
-  width: fit-content;
-  min-width: 10rem;
-  max-width: 15rem;
-  border-radius: $popover-border-radius;
+.popover-wrapper {
+  display: inline-block;
+  position: relative;
+
+  .popover {
+    list-style: none;
+    background-color: white;
+    text-wrap: wrap;
+    width: fit-content;
+    min-width: 10rem;
+    max-width: 15rem;
+
+    border: $popover-border-width solid rgb($light-gray-color);
+    border-radius: $popover-border-radius;
+
+    position: absolute;
+    z-index: 1;
+
+    display: none;
+
+    &.left {
+      left: 0;
+    }
+
+    &.right {
+      right: 0;
+    }
+
+    &.top {
+      top: 0;
+      transform: translateY(-100%);
+    }
+
+    &.bottom {
+      bottom: 0;
+      transform: translateY(100%);
+    }
+
+    li {
+      @extend .mx-4, .py-3;
+    }
+
+    a,
+    button {
+      font-size: 1rem;
+      background-color: transparent;
+      border: none;
+      font-weight: normal;
+      margin: 0;
+      padding: 0;
+      color: rgb($charcoal-grey-color);
+    }
+  }
+}
+
+.popover-wrapper:hover {
+  .icon-angle-bottom {
+    transform: rotateZ(-180deg);
+    transition: all 0.1s;
+  }
+
+  .popover {
+    display: inline-block;
+  }
 }

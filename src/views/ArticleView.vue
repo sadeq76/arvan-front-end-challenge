@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
+import { RouterLink } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 // Types
@@ -17,12 +18,14 @@ const tableProps = reactive<TableProps>({
     { key: 'title', title: t('title') },
     { key: 'author', title: t('author') },
     { key: 'tags', title: t('tags') },
-    { key: 'excerpt', title: t('excerpt') },
+    { key: 'excerpt', title: t('excerpt'), class: 'overflow-hidden single-line' },
     { key: 'created', title: t('created') },
     { key: 'actions' }
   ],
+
   items: [
     {
+      id: 1,
       title: 'Article title',
       author: '@author_username',
       tags: ['article', 'test'],
@@ -30,6 +33,7 @@ const tableProps = reactive<TableProps>({
       created: ''
     },
     {
+      id: 2,
       title: 'Article title',
       author: '@author_username',
       tags: ['hello'],
@@ -37,6 +41,7 @@ const tableProps = reactive<TableProps>({
       created: ''
     },
     {
+      id: 3,
       title: 'Article title',
       author: '@author_username',
       tags: ['hello', 'world', 'again', 'and', 'again'],
@@ -45,6 +50,7 @@ const tableProps = reactive<TableProps>({
       created: ''
     },
     {
+      id: 4,
       title: 'Article title',
       author: '@author_username',
       tags: ['hello', 'world', 'again', 'and', 'again', 'again', 'again', 'again', 'again'],
@@ -53,6 +59,7 @@ const tableProps = reactive<TableProps>({
       created: ''
     },
     {
+      id: 5,
       title: 'Article title',
       author: '@author_username',
       tags: ['hello', 'world'],
@@ -62,6 +69,12 @@ const tableProps = reactive<TableProps>({
     }
   ]
 })
+
+// TODO: (code: 0005) show snackbar
+const deleteBlog = (id: number) =>
+  (tableProps.items = tableProps.items.filter(
+    (item: Record<string | number, any>) => item.id !== id
+  ))
 </script>
 
 <template>
@@ -83,13 +96,25 @@ const tableProps = reactive<TableProps>({
         </div>
       </template>
 
-      <template #actions>
-        <ABtn class="dark-sky-blue" data-toggle="popover">
-          ...
-          <i class="icon-angle-bottom md"></i>
-        </ABtn>
+      <template #actions="{ id }">
+        <div class="popover-wrapper m-2">
+          <ABtn class="dark-sky-blue" data-toggle="popover">
+            ...
+            <i class="icon-angle-bottom md"></i>
+          </ABtn>
 
-        <div class="popover">Teesting this components</div>
+          <ul class="popover right bottom">
+            <li>
+              <RouterLink to="/register">Edit</RouterLink>
+            </li>
+
+            <hr class="border-light-gray solid" />
+
+            <li>
+              <ABtn text="delete" @click="deleteBlog(id)">Delete</ABtn>
+            </li>
+          </ul>
+        </div>
       </template>
     </a-table>
   </div>

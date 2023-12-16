@@ -16,10 +16,10 @@ const props = defineProps<TableProps>()
 
       <tbody>
         <tr v-for="(item, index) in props.items" :key="index">
-          <td v-for="cell in columns" :key="cell.key">
+          <td v-for="cell in columns" :key="cell.key" :class="cell.class">
             <slot v-if="$slots[cell.key]" :name="cell.key" v-bind="{ ...item, index }"></slot>
 
-            <span v-else :class="cell.class">
+            <span v-else>
               {{ item[cell.key] }}
             </span>
           </td>

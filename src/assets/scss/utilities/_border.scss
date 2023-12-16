@@ -4,8 +4,16 @@ $classes: (
   'lg': 1.5
 );
 
+$styles: solid, dotted;
+
 @each $class-suffix, $factor in $classes {
   .rounded-#{$class-suffix} {
     border-radius: $base-border-radius * $factor;
+  }
+}
+
+@each $style in $styles {
+  .#{$style} {
+    border-style: $style;
   }
 }
