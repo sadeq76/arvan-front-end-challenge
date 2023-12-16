@@ -7,3 +7,7 @@
 - [ ] There wasn't enough time to complete the test files. (code: 0003)
 - [ ] The APIs are not connected because I don't have access to the API documentation. (code: 0004)
 - [ ] Compelete DOD markdown. (code: 0005)
+
+## List of articles
+
+- [ ] Show snackbar on delete article (code: 0005)
