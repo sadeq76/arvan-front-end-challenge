@@ -1,0 +1,20 @@
+@use 'sass:math';
+
+$cols: 2, 4, 6, 8, 10, 12;
+
+@each $col in $cols {
+  .col-#{$col} {
+    width: math.percentage(math.div($col, 12));
+  }
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    .col-sm-#{$col} {
+      width: math.percentage(math.div($col, 12));
+    }
+  }
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+}
