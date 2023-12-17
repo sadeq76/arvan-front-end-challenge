@@ -5,8 +5,11 @@
   font-family: Helvetica;
 }
 
-input {
-  font-size: inherit;
+input,
+textarea {
+  border: none;
+  outline: none;
+  font: inherit;
 }
 
 a {

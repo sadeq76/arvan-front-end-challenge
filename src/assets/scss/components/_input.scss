@@ -8,8 +8,6 @@
   font-size: $input-font-size;
 
   .a-input {
-    outline: none;
-    border: none;
     padding-left: $input-inline-padding;
     padding-right: math.div($input-inline-padding, 2);
     padding-block: $input-block-padding;

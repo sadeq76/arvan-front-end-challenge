@@ -1,5 +1,5 @@
 export interface InputProps {
-  modelValue: string | null
+  modelValue: string | null | undefined
   label?: string
   placeholder?: string
   rules?: any

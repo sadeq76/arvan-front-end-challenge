@@ -1,15 +1,9 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-import { type InputProps } from '@/models/props/input'
+import type { TextAreaProps } from '@/models/props/text-area'
 
-const props = defineProps<InputProps>()
-
-const showPassword = ref<boolean>(false)
-const type = computed(() => {
-  if (props.type?.toLowerCase() === 'password') return showPassword.value ? 'text' : 'password'
-  return props.type
-})
+const props = defineProps<TextAreaProps>()
 
 const emit = defineEmits(['update:modelValue'])
 
@@ -39,29 +33,15 @@ const labelColor = computed(() => `txt-${hint.value ? 'error' : 'charcoal-grey'}
     <label :for="label" class="label mb-2" :class="labelColor">{{ label }}</label>
 
     <div class="a-input-box w-100 mb-2 flex">
-      <input
+      <textarea
         v-bind="props"
+        :value="modelValue"
         :id="props.label"
-        class="a-input p-2 grow-1"
         :class="{ 'border-error solid': hint }"
         style="border-width: 1px"
-        :value="modelValue"
-        :type="type"
+        class="a-input p-2 grow-1"
         @input="onInput"
       />
-
-      <div v-if="props.type === 'password'" class="suffix">
-        <button
-          class="toggle-password transparent w-100 h-100"
-          type="button"
-          @click="showPassword = !showPassword"
-        >
-          <i
-            class="toggle-password-icon"
-            :class="{ 'icon-eye': showPassword, 'icon-close-eye': !showPassword }"
-          ></i>
-        </button>
-      </div>
     </div>
 
     <p class="txt-error">{{ hint || '‎' }}</p>
