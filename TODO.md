@@ -19,3 +19,4 @@
 ## General
 
 - [ ] Add Defination of done and check project with that (code: 0007)
+- [ ] Perhaps it's better to import every CSS component inside its own Vue component (code: 0008)
