@@ -6,6 +6,8 @@ $classes: (
 
 $styles: solid, dotted;
 
+$sizes: 1, 2, 3;
+
 @each $class-suffix, $factor in $classes {
   .rounded-#{$class-suffix} {
     border-radius: $base-border-radius * $factor;
@@ -15,5 +17,11 @@ $styles: solid, dotted;
 @each $style in $styles {
   .#{$style} {
     border-style: $style;
+  }
+}
+
+@each $size in $sizes {
+  .border-#{$size} {
+    border-width: #{$size}px;
   }
 }
