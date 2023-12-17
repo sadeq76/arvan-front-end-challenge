@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LoginView from '@/views/LoginView.vue'
-import RegisterView from '@/views/RegisterView.vue'
-import ArticleView from '@/views/ArticleView.vue'
-import CreateArticleView from '@/views/CreateArticleView.vue'
+import LoginPage from '@/views/login/LoginPage.vue'
+import RegisterPage from '@/views/register/RegisterPage.vue'
+import ArticlePage from '@/views/article/ArticlePage.vue'
+import CreateArticlePage from '@/views/article/CreateArticlePage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,33 +10,33 @@ const router = createRouter({
     {
       path: '/login',
       name: 'Login',
-      component: LoginView,
+      component: LoginPage,
       meta: { requiresAuth: false, layout: false }
     },
     {
       path: '/register',
       name: 'Register',
-      component: RegisterView,
+      component: RegisterPage,
       meta: { requiresAuth: false, layout: false }
     },
     // TODO: (code: 0006) remove question mark from this path
     {
       path: '/articles/page/:page(\\d+)?',
       name: 'Articles',
-      component: ArticleView,
+      component: ArticlePage,
       meta: { requiresAuth: true, layout: true },
       props: true
     },
     {
       path: '/articles/create',
       name: 'CreateArticle',
-      component: CreateArticleView,
+      component: CreateArticlePage,
       meta: { requiresAuth: true, layout: true }
     },
     {
       path: '/articles/edit/:slug',
       name: 'EditArticle',
-      component: CreateArticleView,
+      component: CreateArticlePage,
       meta: { requiresAuth: true, layout: true },
       props: true
     }

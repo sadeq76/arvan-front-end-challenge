@@ -2,10 +2,10 @@
 import { describe, it } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import RegisterView from '@/views/RegisterView.vue'
+import CreateArticlePage from '@/views/article/CreateArticlePage.vue'
 
 describe('', () => {
   it('', () => {
-    const wrapper = mount(RegisterView)
+    const wrapper = mount(CreateArticlePage)
   })
 })
