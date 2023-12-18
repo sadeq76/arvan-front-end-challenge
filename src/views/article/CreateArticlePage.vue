@@ -5,6 +5,8 @@ import AInput from '@/components/AInput.vue'
 import ATextArea from '@/components/ATextArea.vue'
 import ABtn from '@/components/ABtn.vue'
 
+import TagSelector from './components/TagSelector.vue'
+
 import { required } from '@/utils/validations'
 
 const model = reactive({
@@ -48,13 +50,7 @@ const model = reactive({
       </div>
 
       <div class="col-4 col-sm-12">
-        <AInput
-          v-model="model.title"
-          :label="$t('tags')"
-          type="text"
-          placeholder="New tag"
-          class="mb-6"
-        />
+        <TagSelector v-model="model.tags" />
       </div>
     </div>
 

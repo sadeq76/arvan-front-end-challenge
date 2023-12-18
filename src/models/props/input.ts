@@ -3,5 +3,5 @@ export interface InputProps {
   label?: string
   placeholder?: string
   rules?: any
-  type?: string
+  type?: 'password' | 'text' | 'email'
 }
